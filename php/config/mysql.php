@@ -20,17 +20,10 @@ try {
     );
 
 } catch (PDOException $e) {
-
     die(
         json_encode([
             "success" => false,
-            "message" => "Database connection failed",
-            "host" => $host,
-            "database" => $dbname,
-            "user" => $username,
-            "port" => $port,
-            "error" => $e->getMessage()
+            "message" => "Database connection failed"
         ])
     );
-
 }
