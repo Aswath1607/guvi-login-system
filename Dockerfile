@@ -4,7 +4,8 @@ RUN apt-get update && apt-get install -y \
     git \
     unzip \
     zip \
-    libzip-dev
+    libzip-dev \
+    && rm -rf /var/lib/apt/lists/*
 
 RUN pecl install mongodb \
     && docker-php-ext-enable mongodb
@@ -19,4 +20,4 @@ COPY . .
 
 RUN composer install --no-dev --optimize-autoloader
 
-CMD ["apache2-foreground"]
+EXPOSE 80
