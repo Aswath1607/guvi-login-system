@@ -4,13 +4,7 @@ header("Content-Type: application/json");
 
 require_once "config/mysql.php";
 
-echo json_encode([
-    "host" => getenv('MYSQLHOST'),
-    "database" => getenv('MYSQLDATABASE'),
-    "user" => getenv('MYSQLUSER'),
-    "port" => getenv('MYSQLPORT')
-]);
-exit;
+
 
 if ($_SERVER["REQUEST_METHOD"] !== "POST") {
     echo json_encode([
