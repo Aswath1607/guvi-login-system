@@ -1,14 +1,15 @@
 <?php
 
-$host = "localhost";
-$dbname = "guvi_auth";
-$username = "root";
-$password = "";
+$host = getenv('MYSQLHOST');
+$dbname = getenv('MYSQLDATABASE');
+$username = getenv('MYSQLUSER');
+$password = getenv('MYSQLPASSWORD');
+$port = getenv('MYSQLPORT');
 
 try {
 
     $pdo = new PDO(
-        "mysql:host=$host;dbname=$dbname;charset=utf8mb4",
+        "mysql:host=$host;port=$port;dbname=$dbname;charset=utf8mb4",
         $username,
         $password
     );
@@ -23,7 +24,8 @@ try {
     die(
         json_encode([
             "success" => false,
-            "message" => "Database connection failed"
+            "message" => "Database connection failed",
+            "error" => $e->getMessage()
         ])
     );
 
