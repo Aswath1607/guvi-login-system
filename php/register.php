@@ -73,7 +73,8 @@ try {
 
     echo json_encode([
         "success" => false,
-        "message" => "Registration failed"
+        "message" => "Registration failed",
+        "error" => $e->getMessage()
     ]);
 
 }
