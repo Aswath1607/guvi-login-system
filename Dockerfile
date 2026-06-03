@@ -3,7 +3,10 @@ FROM php:8.2-cli
 RUN apt-get update && apt-get install -y \
     git \
     unzip \
-    zip
+    zip \
+    default-mysql-client
+
+RUN docker-php-ext-install pdo pdo_mysql
 
 RUN pecl install mongodb \
     && docker-php-ext-enable mongodb
