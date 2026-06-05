@@ -6,7 +6,9 @@ use MongoDB\Client;
 
 try {
 
-    $client = new Client("mongodb://localhost:27017");
+    $client = new MongoDB\Client(
+    "mongodb+srv://aswaths1607_db_user:Aswath@cluster0.wsl7ttm.mongodb.net/?retryWrites=true&w=majority"
+);
 
     $mongoDB = $client->guvi_auth;
 
