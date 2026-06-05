@@ -75,10 +75,10 @@ try {
         "name" => $user["full_name"]
     ]);
 
-} catch (Exception $e) {
+}catch (Exception $e) {
 
     echo json_encode([
         "success" => false,
-        "message" => "Login failed"
+        "message" => $e->getMessage()
     ]);
 }
