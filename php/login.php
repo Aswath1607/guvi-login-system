@@ -63,7 +63,7 @@ try {
 
     
 
-    session_start();
+    
 
 $_SESSION["user_id"] = $user["id"];
 $_SESSION["name"] = $user["full_name"];
