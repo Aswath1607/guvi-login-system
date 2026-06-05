@@ -1,10 +1,10 @@
 <?php
 
-$host = getenv('MYSQLHOST');
-$dbname = getenv('MYSQL_DATABASE') ?: getenv('MYSQLDATABASE');
-$username = getenv('MYSQLUSER');
-$password = getenv('MYSQLPASSWORD');
-$port = getenv('MYSQLPORT');
+$host = "localhost";
+$dbname = "guvi_auth";
+$username = "root";
+$password = "";
+$port = 3306;
 
 try {
 
