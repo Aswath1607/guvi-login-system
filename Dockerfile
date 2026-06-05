@@ -4,7 +4,9 @@ RUN apt-get update && apt-get install -y \
     git \
     unzip \
     zip \
-    default-mysql-client
+    default-mysql-client \
+    libssl-dev \
+    pkg-config
 
 RUN docker-php-ext-install pdo pdo_mysql
 
