@@ -1,7 +1,8 @@
 <?php
 
 header("Content-Type: application/json");
-require_once "config/redis.php";
+session_start();
+
 require_once "config/mysql.php";
 
 if ($_SERVER["REQUEST_METHOD"] !== "POST") {
@@ -60,20 +61,19 @@ try {
         exit;
     }
 
-    $token = bin2hex(random_bytes(32));
-    $redis->setex(
-    "session:" . $token,
-    3600,
-    $user["id"]
-);
+    
 
-    echo json_encode([
-        "success" => true,
-        "message" => "Login successful",
-        "token" => $token,
-        "user_id" => $user["id"],
-        "name" => $user["full_name"]
-    ]);
+    session_start();
+
+$_SESSION["user_id"] = $user["id"];
+$_SESSION["name"] = $user["full_name"];
+
+echo json_encode([
+    "success" => true,
+    "message" => "Login successful",
+    "user_id" => $user["id"],
+    "name" => $user["full_name"]
+]);
 
 }catch (Exception $e) {
 
